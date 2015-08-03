@@ -1,1 +1,10 @@
 /* Empty. Add your own CSS if you like */
+.expanded {
+	background: #0D47A1;
+}
+	.expanded .avatar {
+		background: #E6E6E6;
+		border: 2px solid #FFF;
+	}
+	.expanded .menu-bottom {
+	}
