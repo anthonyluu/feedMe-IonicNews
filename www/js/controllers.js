@@ -4,6 +4,6 @@ angular.module('feedme.controllers', [])
 
 })
 
-.controller('FeedCtrl', function($scope) {
-
-});
+.controller('FeedCtrl', ['$scope', 'FeedService', function($scope, Feeds) {
+  $scope.feeds = Feeds.all();
+}]);
