@@ -26,10 +26,14 @@ angular.module('feedme', ['ionic', 'ionic-material', 'feedme.controllers', 'feed
   $localStorage.menu = {};
   $localStorage.menu.feeds = [{
     title: "Engadget",
+    icon: 'http://www.engadget.com/favicon.ico',
+    link: 'http://www.engadget.com/rss.xml',
     subtitles: []
   }, 
   {
     title: "The Next Web",
+    icon: 'http://thenextweb.com/favicon.ico',
+    link: 'http://feeds2.feedburner.com/thenextweb',
     subtitles: []
   }]; // replace with appropriate service
 })

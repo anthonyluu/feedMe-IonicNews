@@ -1,10 +1,31 @@
 /* Empty. Add your own CSS if you like */
 .expanded {
-	background: #0D47A1;
+	background: #546E7A;
 }
-	.expanded .avatar {
-		background: #E6E6E6;
-		border: 2px solid #FFF;
-	}
-	.expanded .menu-bottom {
-	}
+.expanded .avatar {
+	background: #E6E6E6;
+	border: 2px solid #FFF;
+}
+.expanded .menu-bottom {
+}
+
+.menu .bar.bar-header.expanded {
+	min-height: 100px;
+}
+
+.has-expanded-header {
+	top: 100px !important;
+	background: white;
+}
+.has-expanded-header:hover {
+	background: white;
+}
+
+.bar-feedme {
+	background: #455A64;
+	color: #FFF;
+}
+
+.feed-content {
+	background: #FAFAFA;
+}
