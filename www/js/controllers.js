@@ -5,7 +5,7 @@ angular.module('feedme.controllers', [])
   console.log(JSON.stringify($scope.myFeeds));
 })
 
-.controller('FeedCtrl', ['$scope', 'FeedService', function($scope, Feeds) {
+.controller('FeedCtrl', ['$scope', 'FeedService', '$stateParams', function($scope, Feeds, $stateParams) {
   Feeds.loadFeed($stateParams.rss, 50).then(function(response) {
     $scope.feed = response;
   });
