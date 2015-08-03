@@ -1,39 +1,34 @@
 angular.module('feedme.services', [])
 
-.factory('FeedService', function() {
+.factory('FeedService', ['$http', function($http) {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
   var feeds = [{
-    id: 0,
-    name: 'Microsoft 10 review',
-    lastText: 'Here is some comments ..',
-    face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
-  }, {
-    id: 1,
-    name: 'Article 2',
-    lastText: 'Hey, it\'s me',
-    face: 'https://avatars3.githubusercontent.com/u/11214?v=3&s=460'
-  }, {
-    id: 2,
-    name: 'Article 3',
-    lastText: 'I should buy a boat',
-    face: 'https://pbs.twimg.com/profile_images/479090794058379264/84TKj_qa.jpeg'
-  }, {
-    id: 3,
-    name: 'Article 4',
-    lastText: 'Look at my mukluks!',
-    face: 'https://pbs.twimg.com/profile_images/598205061232103424/3j5HUXMY.png'
-  }, {
-    id: 4,
-    name: 'Article 5',
-    lastText: 'This is wicked good ice cream.',
-    face: 'https://pbs.twimg.com/profile_images/578237281384841216/R3ae1n61.png'
+    title: "Engadget",
+    icon: 'http://www.engadget.com/favicon.ico',
+    link: 'http://www.engadget.com/rss.xml',
+    subtitles: []
+  },
+  {
+    title: "The Next Web",
+    icon: 'http://thenextweb.com/favicon.ico',
+    link: 'http://feeds2.feedburner.com/thenextweb',
+    subtitles: []
   }];
+
+  var feed = [];
+
+  // $http.get('http://www.engadget.com/rss.xml').then(function(response) {
+  //   console.log("good resp ", response);
+  // });
 
   return {
     all: function() {
-      return feeds;
+      $http.get('http://www.engadget.com/rss.xml').then(function(response) {
+        console.log("good resp ", response);
+        return feed;
+      });
     },
     remove: function(feed) {
       feeds.splice(feeds.indexOf(feed), 1);
@@ -45,6 +40,21 @@ angular.module('feedme.services', [])
         }
       }
       return null;
+    },
+    loadFeed: function(siteTitle) {
+      var url;
+      for (i = 0; i < feeds.length; i ++) {
+        if (feeds[i].title === siteTitle) {
+          url = feeds[i].link;
+        }
+      }
+      if (url) {
+        return $http.jsonp('//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&callback=JSON_CALLBACK&q=' + encodeURIComponent(url)).then(function(response) {
+          feed = response.data.responseData.feed.entries;
+          console.log(feed);
+          return feed;
+        });
+      }
     }
   };
-});
+}]);

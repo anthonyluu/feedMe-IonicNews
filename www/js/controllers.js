@@ -6,5 +6,5 @@ angular.module('feedme.controllers', [])
 })
 
 .controller('FeedCtrl', ['$scope', 'FeedService', function($scope, Feeds) {
-  $scope.feeds = Feeds.all();
+  $scope.feed = Feeds.loadFeed('Engadget');
 }]);
