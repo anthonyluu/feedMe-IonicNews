@@ -1,6 +1,6 @@
-angular.module('starter.services', [])
+angular.module('feedme.services', [])
 
-.factory('Chats', function() {
+.factory('Feed', function() {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
