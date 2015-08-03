@@ -31,15 +31,25 @@ angular.module('feedme', ['ionic', 'ionic-material', 'feedme.controllers', 'feed
   // Each state's controller can be found in controllers.js
   $stateProvider
 
-  // setup an abstract state for the tabs directive
-    .state('feed', {
-    url: '/feed',
-    abstract: true,
-    templateUrl: 'templates/feed.html'
-    controller: 'FeedCtrl'
-  })
+    // setup an abstract state for the tabs directive
+    .state('app', {
+      url: '/app',
+      abstract: true,
+      templateUrl: 'templates/menu.html',
+      controller: 'AppCtrl'
+    })
+
+    .state('app.feed', {
+      url: '/feed',
+      views: {
+          'menuContent': {
+              templateUrl: 'templates/feed.html',
+              controller: 'FeedCtrl'
+          }
+      }
+    });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/feed');
+  $urlRouterProvider.otherwise('/app/feed');
 
 });

@@ -1,5 +1,9 @@
 angular.module('feedme.controllers', [])
 
-.controller('FeedCtrl', function($scope) {
+.controller('AppCtrl', function($scope) {
 
 })
+
+.controller('FeedCtrl', function($scope) {
+
+});
