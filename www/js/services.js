@@ -19,29 +19,8 @@ angular.module('feedme.services', [])
 
   var feed = [];
 
-  // $http.get('http://www.engadget.com/rss.xml').then(function(response) {
-  //   console.log("good resp ", response);
-  // });
-
   return {
-    all: function() {
-      $http.get('http://www.engadget.com/rss.xml').then(function(response) {
-        console.log("good resp ", response);
-        return feed;
-      });
-    },
-    remove: function(feed) {
-      feeds.splice(feeds.indexOf(feed), 1);
-    },
-    get: function(feedId) {
-      for (var i = 0; i < feeds.length; i++) {
-        if (feeds[i].id === parseInt(feedId)) {
-          return feeds[i];
-        }
-      }
-      return null;
-    },
-    loadFeed: function(siteTitle) {
+    loadFeed: function(siteTitle, num) {
       var url;
       for (i = 0; i < feeds.length; i ++) {
         if (feeds[i].title === siteTitle) {
@@ -49,7 +28,7 @@ angular.module('feedme.services', [])
         }
       }
       if (url) {
-        return $http.jsonp('//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&callback=JSON_CALLBACK&q=' + encodeURIComponent(url)).then(function(response) {
+        return $http.jsonp('//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=' + num + '&callback=JSON_CALLBACK&q=' + encodeURIComponent(url)).then(function(response) {
           feed = response.data.responseData.feed.entries;
           return feed;
         });
