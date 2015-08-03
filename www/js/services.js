@@ -51,7 +51,6 @@ angular.module('feedme.services', [])
       if (url) {
         return $http.jsonp('//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&callback=JSON_CALLBACK&q=' + encodeURIComponent(url)).then(function(response) {
           feed = response.data.responseData.feed.entries;
-          console.log(feed);
           return feed;
         });
       }

@@ -20,7 +20,7 @@
         </ion-header-bar>
         <ion-content class="stable-bg has-expanded-header">
             <ion-list ng-repeat="feed in myFeeds">
-                <ion-item nav-clear menu-close href="#/app/feed?f={{feed.title}}">
+                <ion-item nav-clear menu-close href="#/app/feed/{{feed.title}}">
                     {{feed.title}}
                 </ion-item>
             </ion-list>

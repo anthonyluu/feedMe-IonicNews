@@ -55,7 +55,7 @@ angular.module('feedme', ['ionic', 'ionic-material', 'feedme.controllers', 'feed
     })
 
     .state('app.feed', {
-      url: '/feed',
+      url: '/feed/:rss',
       views: {
           'menuContent': {
               templateUrl: 'templates/feed.html',
@@ -65,6 +65,6 @@ angular.module('feedme', ['ionic', 'ionic-material', 'feedme.controllers', 'feed
     });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/feed');
+  $urlRouterProvider.otherwise('/app/feed/all');
 
 });
