@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('feedme', ['ionic', 'ionic-material', 'feedme.controllers', 'feedme.services'])
+angular.module('feedme', ['ionic', 'ionic-material', 'feedme.controllers', 'feedme.services', 'ngStorage'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $localStorage) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -21,6 +21,17 @@ angular.module('feedme', ['ionic', 'ionic-material', 'feedme.controllers', 'feed
       StatusBar.styleLightContent();
     }
   });
+
+  // Now prepopulate the default feeds
+  $localStorage.menu = {};
+  $localStorage.menu.feeds = [{
+    title: "Engadget",
+    subtitles: []
+  }, 
+  {
+    title: "The Next Web",
+    subtitles: []
+  }]; // replace with appropriate service
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
