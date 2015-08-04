@@ -2,21 +2,13 @@
   <ion-content class="feed-content">
   	<div class="container">
 	  	<div class="list card light-bg" ng-repeat="article in feed">
-	        <div class="item item-avatar">
+	        <div class="item">
 	            <h2>{{article.title}}</h2>
-	            <p>"Joffrey. Cersei. Ilyn Payne. Hound. Polliver. The Mountain."</p>
-	             <p>
-	                <a class="subdued">1 Like</a>
-	                <a class="subdued">5 Comments</a>
-	            </p>
+	        </div>
+	        <div class="item item-body">
+	        	{{getArticleDescription(article.content)}}
 	        </div>
 	        <div class="item tabs tabs-secondary tabs-icon-left">
-	            <a class="tab-item" data-ink-color="#336699" data-ink-opacity="0.5">
-	                <i class="icon ion-thumbsup"></i> Like
-	            </a>
-	            <a class="tab-item" data-ink-color="#336699" data-ink-opacity="0.5">
-	                <i class="icon ion-chatbox"></i> Comment
-	            </a>
 	            <a class="tab-item" data-ink-color="#336699" data-ink-opacity="0.5">
 	                <i class="icon ion-share"></i> Share
 	            </a>
