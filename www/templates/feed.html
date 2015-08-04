@@ -1,5 +1,9 @@
 <ion-view view-title="Feed">
   <ion-content class="feed-content">
+	  <ion-refresher
+	    pulling-text="Pull to refresh..."
+	    on-refresh="doRefresh()">
+	  </ion-refresher>
   	<div class="container">
   		<div class="list card light-bg" ng-if="feed.length == 0">
   			<div class="item">

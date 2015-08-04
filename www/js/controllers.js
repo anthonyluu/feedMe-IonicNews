@@ -9,12 +9,24 @@ angular.module('feedme.controllers', [])
 })
 
 .controller('FeedCtrl', ['$scope', 'FeedService', '$stateParams', function($scope, Feeds, $stateParams) {
-  Feeds.loadFeed($stateParams.rss, 50).then(function(response) {
-    $scope.feed = response;
-  },
-  function(rejectedResponse) {
-    $scope.feed = [];
-  });
+  var load = function(refresh) {
+    Feeds.loadFeed($stateParams.rss, 50).then(function(response) {
+      $scope.feed = response;
+      if (refresh) {
+        $scope.$broadcast('scroll.refreshComplete');
+      }
+    },
+    function(rejectedResponse) {
+      $scope.feed = [];
+    });
+  }
+  // load the feed
+  load();
+
+  $scope.doRefresh = function() {
+    // call load again, but this time, set the refreshComplete flag
+    load(true);
+  }
 
   $scope.getArticleDescription = function(description) {
     var txt = document.createElement("textarea");
