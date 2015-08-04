@@ -1,6 +1,6 @@
 angular.module('feedme.services', [])
 
-.factory('FeedService', ['$http', function($http) {
+.factory('FeedService', ['$http', '$q', function($http, $q) {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
@@ -33,6 +33,7 @@ angular.module('feedme.services', [])
           return feed;
         });
       }
+      else return $q.reject("siteTitle does not exist");
     }
   };
 }]);

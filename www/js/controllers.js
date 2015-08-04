@@ -8,5 +8,9 @@ angular.module('feedme.controllers', [])
 .controller('FeedCtrl', ['$scope', 'FeedService', '$stateParams', function($scope, Feeds, $stateParams) {
   Feeds.loadFeed($stateParams.rss, 50).then(function(response) {
     $scope.feed = response;
+    $scope.busy = false;
+  },
+  function(rejectedResponse) {
+    $scope.feed = [];
   });
 }]);
