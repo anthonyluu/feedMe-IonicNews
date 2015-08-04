@@ -4,7 +4,10 @@
         </button>
         <h1 class="title">{{currentNews.title}}</h1>
     </ion-header-bar>
-    <ion-content class="padding">
-    	<iframe ng-src={{printable(currentNews.link)}} height="100%" width="100%">
+    <ion-content>
+    	<div class="container-full">
+	    	<iframe ng-src={{printable(currentNews.link)}}>
+	    	</iframe>
+    	</div>
     </ion-content>
 </ion-modal-view>
