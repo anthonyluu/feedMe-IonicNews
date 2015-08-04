@@ -1,7 +1,19 @@
 <ion-view view-title="All Feeds">
   <ion-content class="feed-content">
   	<div class="container">
-	  	
+	  	<label class="item item-input" style="background:#FFF">
+		  <i class="icon ion-search placeholder-icon"></i>
+		  <input type="search" placeholder="Search">
+		</label>
+
+		<div class="item item-bg-image" ng-repeat="feed in supportedFeeds">
+	        <div class="item item-avatar feed-select-item">
+	        	<button class="button-avatar icon ion-plus-round" ng-if="feed.isAdded"></button>
+	        	<button class="button-avatar icon ion-minus-round" ng-if="!feed.isAdded"></button>
+	            <h2>{{feed.title}}</h2>
+	            <p>{{feed.description}}</p>
+	        </div>
+	    </div>
     </div>
   </ion-content>
 </ion-view>
