@@ -4,8 +4,8 @@ angular.module('feedme.controllers', [])
   $scope.myFeeds = $localStorage.menu.feeds; // replace with service to access this
 })
 
-.controller('AllFeedsCtrl', function($scope) {
-  $scope.myFeeds = $localStorage.menu.feeds;
+.controller('AllFeedsCtrl', function($scope, $localStorage, FeedService) {
+  $scope.supportedFeeds = FeedService.listAllFeeds();
 })
 
 .controller('FeedCtrl', ['$scope', 'FeedService', '$stateParams', function($scope, Feeds, $stateParams) {
@@ -19,7 +19,7 @@ angular.module('feedme.controllers', [])
   $scope.getArticleDescription = function(description) {
     var txt = document.createElement("textarea");
     txt.innerHTML = String(description).replace(/<[^>]+>/gm, '');
-    var textValue = txt.value;
+    var textValue = txt.value; // TODO: Delete created textarea element 
     return textValue;
   };
 

@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('feedme', ['ionic', 'ionic-material', 'feedme.controllers', 'feedme.services', 'ngStorage'])
 
-.run(function($ionicPlatform, $localStorage) {
+.run(function($ionicPlatform, $localStorage, FeedService) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -23,19 +23,12 @@ angular.module('feedme', ['ionic', 'ionic-material', 'feedme.controllers', 'feed
   });
 
   // Now prepopulate the default feeds
-  $localStorage.menu = {};
-  $localStorage.menu.feeds = [{
-    title: "Engadget",
-    icon: 'http://www.engadget.com/favicon.ico',
-    link: 'http://www.engadget.com/rss.xml',
-    subtitles: []
-  }, 
-  {
-    title: "The Next Web",
-    icon: 'http://thenextweb.com/favicon.ico',
-    link: 'http://feeds2.feedburner.com/thenextweb',
-    subtitles: []
-  }]; // replace with appropriate service
+  if(!$localStorage.menu) {
+    $localStorage.menu = {};
+  }
+  if (!$localStorage.menu.feeds) {
+    $localStorage.menu.feeds = FeedService.defaultFeeds();
+  }
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -59,7 +52,7 @@ angular.module('feedme', ['ionic', 'ionic-material', 'feedme.controllers', 'feed
       views: {
           'menuContent': {
               templateUrl: 'templates/allFeeds.html',
-              controller: 'AllFeedSCtrl'
+              controller: 'AllFeedsCtrl'
           }
       }
     })

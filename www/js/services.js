@@ -8,13 +8,17 @@ angular.module('feedme.services', [])
     title: "Engadget",
     icon: 'http://www.engadget.com/favicon.ico',
     link: 'http://www.engadget.com/rss.xml',
-    subtitles: []
+    image: 'img/feeds/the-next-web-logo.png',
+    description: 'Worldwide, Tech News',
+    isAdded: true
   },
   {
     title: "The Next Web",
     icon: 'http://thenextweb.com/favicon.ico',
     link: 'http://feeds2.feedburner.com/thenextweb',
-    subtitles: []
+    image: 'img/feeds/the-next-web-logo.png',
+    description: 'Worldwide, Tech News',
+    isAdded: true
   }];
 
   var feed = [];
@@ -34,6 +38,12 @@ angular.module('feedme.services', [])
         });
       }
       else return $q.reject("siteTitle does not exist");
+    },
+    listAllFeeds: function() {
+      return feeds;
+    },
+    defaultFeeds: function() {
+      return [];
     }
   };
 }]);
