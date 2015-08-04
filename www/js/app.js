@@ -54,6 +54,15 @@ angular.module('feedme', ['ionic', 'ionic-material', 'feedme.controllers', 'feed
       controller: 'AppCtrl'
     })
 
+    .state('app.allFeeds', {
+      url: '/feed/all',
+      views: {
+          'menuContent': {
+              templateUrl: 'templates/allFeeds.html',
+              controller: 'AllFeedSCtrl'
+          }
+      }
+    })
     .state('app.feed', {
       url: '/feed/:rss',
       views: {
