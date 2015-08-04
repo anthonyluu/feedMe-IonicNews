@@ -10,7 +10,7 @@
 	            <h2>There are no feeds</h2>
 	        </div>
   		</div>
-	  	<div class="list card light-bg" ng-repeat="article in feed">
+	  	<div class="list card light-bg" ng-repeat="article in feed track by $index" ng-click="openDetails($index)">
 	        <div class="item">
 	            <h2>{{article.title}}</h2>
 	        </div>

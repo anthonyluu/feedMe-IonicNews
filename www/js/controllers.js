@@ -8,7 +8,7 @@ angular.module('feedme.controllers', [])
   $scope.myFeeds = $localStorage.menu.feeds;
 })
 
-.controller('FeedCtrl', ['$scope', 'FeedService', '$stateParams', function($scope, Feeds, $stateParams) {
+.controller('FeedCtrl', ['$scope', 'FeedService', '$stateParams', '$ionicModal', '$sce', function($scope, Feeds, $stateParams, $ionicModal, $sce) {
   var load = function(refresh) {
     Feeds.loadFeed($stateParams.rss, 50).then(function(response) {
       $scope.feed = response;
@@ -23,9 +23,37 @@ angular.module('feedme.controllers', [])
   // load the feed
   load();
 
+  // modal stuff
+  $ionicModal.fromTemplateUrl('templates/news-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal
+  })
+
+  $scope.openDetails = function(index) {
+    $scope.currentNews = $scope.feed[index];
+    console.log($scope.currentNews);
+    $scope.modal.show();
+  };
+
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
+  // refreshing stuff when pulled down
+
   $scope.doRefresh = function() {
     // call load again, but this time, set the refreshComplete flag
     load(true);
+  }
+
+  $scope.printable = function(src) {
+    if(src) {
+      var printable = src.replace(/FnL04/, 'FnL13');
+      return $sce.trustAsResourceUrl(src);
+    }
+    return "";
   }
 
   $scope.getArticleDescription = function(description) {

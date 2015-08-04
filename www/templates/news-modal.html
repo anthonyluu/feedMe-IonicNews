@@ -1,0 +1,10 @@
+<ion-modal-view>
+    <ion-header-bar>
+    	<button class="icon-left ion-chevron-left" ng-click="closeModal()">
+        </button>
+        <h1 class="title">{{currentNews.title}}</h1>
+    </ion-header-bar>
+    <ion-content class="padding">
+    	<iframe ng-src={{printable(currentNews.link)}} height="100%" width="100%">
+    </ion-content>
+</ion-modal-view>
