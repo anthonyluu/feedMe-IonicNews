@@ -1,12 +1,12 @@
 /* Empty. Add your own CSS if you like */
 iframe {
-	width:100%;
-  	height:100%;
+	width: 100%;
+  	height: 100%;
 }
 
 .container-full {
-	width:100%;
-	height:90vh;
+	width: 100%;
+	height: 90vh;
 }
 
 .expanded {
@@ -36,6 +36,10 @@ iframe {
 	color: #FFF;
 }
 
+.bar-feedme h1 {
+	color: #FFF;
+}
+
 .feed-content {
 	background: #FAFAFA;
 }
@@ -43,6 +47,13 @@ iframe {
 .item-avatar.feed-select-item {
 	background:#FFF;
 	padding-left:75px;
+}
+
+.button-back {
+	border: 0;
+	width: 40px;
+	background-color: #455A64;
+	color: #FFF;
 }
 
 .button-avatar {
