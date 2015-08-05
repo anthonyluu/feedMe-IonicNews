@@ -6,6 +6,10 @@ News Reader written in Ionic as a proof of concept. An exercise in writing Ionic
 __Authors__: _Anthony Luu and Karanbir Randhawa_ (anthonyluu, karanbirrandhawa).
 
 #Screenshots
+![Side Menu](screenshots/Menu.png)
+![Manage Feeds](screenshots/ManageFeeds.png)
+![Feed](screenshots/Feed.png)
+![Article](screenshots/News.png)
 
 # Setup for development
 You'll need to have cordova and ionic setup first
