@@ -18,6 +18,15 @@ sudo npm install -g cordova
 sudo npm install -g ionic
 ```
 
+
+## Setup this repo
+After cloning, 
+
+```
+npm install && bower install
+ionic serve
+```
+
 ## For adding a new platform
 ```
 ionic platform add ios
