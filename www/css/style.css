@@ -5,6 +5,8 @@ iframe {
 }
 
 .container-full {
+	-webkit-overflow-scrolling: touch;
+	overflow:auto;
 	width: 100%;
 	height: 90vh;
 }
