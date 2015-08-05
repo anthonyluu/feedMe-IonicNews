@@ -21,33 +21,6 @@ angular.module('feedme', ['ionic', 'ionic-material', 'feedme.controllers', 'feed
       StatusBar.styleLightContent();
     }
   });
-
-  // Now prepopulate the default feeds
-  if(!$localStorage.menu) {
-    $localStorage.menu = {};
-  }
-  if (!$localStorage.menu.feeds) {
-    $localStorage.menu.feeds = [];
-  }
-
-  if (!$localStorage.supportedFeeds) {
-    $localStorage.supportedFeeds = [{
-      title: "Engadget",
-      icon: 'http://www.engadget.com/favicon.ico',
-      link: 'http://www.engadget.com/rss.xml',
-      image: 'img/feeds/the-next-web-logo.png',
-      description: 'Worldwide, Tech News',
-      isAdded: false
-    },
-    {
-      title: "The Next Web",
-      icon: 'http://thenextweb.com/favicon.ico',
-      link: 'http://feeds2.feedburner.com/thenextweb',
-      image: 'img/feeds/the-next-web-logo.png',
-      description: 'Worldwide, Tech News',
-      isAdded: false
-    }];
-  }
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
