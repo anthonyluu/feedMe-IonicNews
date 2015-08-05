@@ -6,6 +6,32 @@ angular.module('feedme.controllers', [])
 
 .controller('AllFeedsCtrl', function($scope, $localStorage, FeedService) {
   $scope.supportedFeeds = FeedService.listAllFeeds();
+
+  $scope.addFeed = function(f) {
+    f.isAdded = true;
+    $localStorage.menu.feeds.push(f);
+
+    for (var i = 0; i < $localStorage.supportedFeeds.length; i++) {
+      if ($localStorage.supportedFeeds[i].link == f.link) {
+        $localStorage.supportedFeeds[i].isAdded = true;
+      }
+    }
+  }
+
+  $scope.removeFeed = function(f) {
+    f.isAdded = false;
+    for (var i = 0; i < $localStorage.menu.feeds.length; i++) {
+      if ($localStorage.menu.feeds[i].link == f.link) {
+        $localStorage.menu.feeds.splice(i, 1);
+      }
+    }
+
+    for (var i = 0; i < $localStorage.supportedFeeds.length; i++) {
+      if ($localStorage.supportedFeeds[i].link == f.link) {
+        $localStorage.supportedFeeds[i].isAdded = false;
+      }
+    }
+  }
 })
 
 .controller('FeedCtrl', ['$scope', 'FeedService', '$stateParams', '$ionicModal', '$sce', function($scope, Feeds, $stateParams, $ionicModal, $sce) {

@@ -8,8 +8,8 @@
 
 		<div class="item item-bg-image" ng-repeat="feed in supportedFeeds">
 	        <div class="item item-avatar feed-select-item">
-	        	<button class="button-avatar icon ion-plus-round" ng-if="feed.isAdded"></button>
-	        	<button class="button-avatar icon ion-minus-round" ng-if="!feed.isAdded"></button>
+	        	<button class="button-avatar icon ion-plus-round" ng-if="!feed.isAdded" ng-click="addFeed(feed)"></button>
+	        	<button class="button-avatar icon ion-minus-round" ng-if="feed.isAdded" ng-click="removeFeed(feed)"></button>
 	            <h2>{{feed.title}}</h2>
 	            <p>{{feed.description}}</p>
 	        </div>

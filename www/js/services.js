@@ -1,26 +1,10 @@
 angular.module('feedme.services', [])
 
-.factory('FeedService', ['$http', '$q', function($http, $q) {
+.factory('FeedService', ['$http', '$q',  '$localStorage', function($http, $q, $localStorage) {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var feeds = [{
-    title: "Engadget",
-    icon: 'http://www.engadget.com/favicon.ico',
-    link: 'http://www.engadget.com/rss.xml',
-    image: 'img/feeds/the-next-web-logo.png',
-    description: 'Worldwide, Tech News',
-    isAdded: true
-  },
-  {
-    title: "The Next Web",
-    icon: 'http://thenextweb.com/favicon.ico',
-    link: 'http://feeds2.feedburner.com/thenextweb',
-    image: 'img/feeds/the-next-web-logo.png',
-    description: 'Worldwide, Tech News',
-    isAdded: true
-  }];
-
+  var feeds = $localStorage.supportedFeeds;
   var feed = [];
 
   return {
@@ -41,9 +25,6 @@ angular.module('feedme.services', [])
     },
     listAllFeeds: function() {
       return feeds;
-    },
-    defaultFeeds: function() {
-      return [];
     }
   };
 }]);
