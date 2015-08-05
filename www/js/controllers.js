@@ -34,7 +34,8 @@ angular.module('feedme.controllers', [])
   }
 })
 
-.controller('FeedCtrl', ['$scope', 'FeedService', '$stateParams', '$ionicModal', '$sce', function($scope, Feeds, $stateParams, $ionicModal, $sce) {
+.controller('FeedCtrl', ['FeedService', '$ionicModal', '$sce','$scope', '$stateParams', function(Feeds, $ionicModal, $sce, $scope, $stateParams) {
+
   var load = function(refresh) {
     Feeds.loadFeed($stateParams.rss, 50).then(function(response) {
       $scope.feed = response;
