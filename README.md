@@ -13,22 +13,30 @@ __Authors__: _Anthony Luu and Karanbir Randhawa_ (anthonyluu, karanbirrandhawa).
 
 # Setup for development
 You'll need to have cordova and ionic setup first
-1. sudo npm install -g cordova
-2. sudo npm install -g ionic
+```
+sudo npm install -g cordova
+sudo npm install -g ionic
+```
 
 ## For adding a new platform
-1. ionic platform add ios
-2. ionic platform add android
+```
+ionic platform add ios
+ionic platform add android
+```
 
 ## Build Prerequisites
 For android, you must have the android sdk installed.
 For ios, you'll need to have ios-sim installed. To do so,
 
-1. npm install -g ios-sim
+```
+npm install -g ios-sim
+```
 
 ## To build and emulate
-1. ionic build android
-2. ionic emulate android
+```
+ionic build android
+ionic emulate android
+```
 
 # TODO/Issues
 ### Security
@@ -39,3 +47,6 @@ Need to configure index.html to contain
 
 ### Search
 Need to write angular filter for the search functionality in AllFeeds page
+
+### Screenshots
+Fix screenshots to not be blurry
